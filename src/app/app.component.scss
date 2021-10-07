@@ -1,0 +1,67 @@
+:host {
+  display: grid;
+  grid-gap: 1rem;
+  width: 100vw;
+  height: 100vh;
+
+  .board {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    opacity: 0.3;
+    position: relative;
+
+    &.playable {
+      opacity: 1;
+    }
+  }
+
+  .cell {
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+    position: relative;
+
+    &:nth-child(-n+2) {
+      border-top: 2px solid #000000;
+    }
+
+    &:nth-child(odd) {
+      border-left: 2px solid #000000;
+    }
+
+    &:nth-child(-n+3) {
+      border-top: none;
+    }
+
+    &:first-child,
+    &:nth-child(3n+1) {
+      border-left: none;
+    }
+
+  }
+
+  span.owner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &.O {
+      background: red;
+    }
+
+    &.X {
+      background: blue;
+    }
+  }
+}
